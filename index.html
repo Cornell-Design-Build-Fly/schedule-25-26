@@ -7,294 +7,79 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f4f1ec;
-  --paper: #fff;
-  --ink: #181512;
-  --ink-mid: #5a5048;
-  --ink-faint: #9a9088;
-  --rule: #e0dad2;
-  --rule-dark: #c8c0b8;
+  --bg:#f4f1ec; --paper:#fff; --ink:#181512; --ink-mid:#5a5048; --ink-faint:#9a9088;
+  --rule:#e0dad2; --rule-dark:#c8c0b8;
+  --aw:#1050c0; --aw-l:#dce8ff; --aw-m:#b0ceff;
+  --at:#c06000; --at-l:#fff0d8; --at-m:#ffcf88;
+  --mc:#8b1a00; --mc-l:#ffebe6; --mc-m:#ffc4b8;
+  --pp:#5020a0; --pp-l:#f0e8ff; --pp-m:#d8c0ff;
+  --ch:#1a7040; --ch-l:#dcf7e8; --ch-m:#a0e8c0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-size:11.5px;padding:20px 16px 60px;min-width:1240px;}
 
-  --aero-w: #1050c0;     /* wing blue */
-  --aero-w-l: #dce8ff;
-  --aero-w-m: #b0ceff;
-  --aero-t: #c06000;     /* tail amber */
-  --aero-t-l: #fff0d8;
-  --aero-t-m: #ffcf88;
-  --mech: #8b1a00;       /* mech red-brown */
-  --mech-l: #ffebe6;
-  --mech-m: #ffc4b8;
-  --prop: #5020a0;       /* prop purple */
-  --prop-l: #f0e8ff;
-  --prop-m: #d8c0ff;
-  --checks: #1a7040;     /* green */
-  --checks-l: #dcf7e8;
-  --checks-m: #a0e8c0;
-  --pre: #606060;
-  --pre-l: #f0f0f0;
-}
+.page-header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2.5px solid var(--ink);padding-bottom:10px;margin-bottom:14px;}
+.page-header h1{font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:700;letter-spacing:-0.5px;}
+.page-header .sub{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-faint);letter-spacing:2px;margin-top:3px;}
+.header-meta{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--ink-faint);line-height:1.9;}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+.legend{display:flex;gap:14px;margin-bottom:10px;align-items:center;flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:9.5px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.5px;color:var(--ink-mid);}
+.ldot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+.legend-note{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--ink-faint);}
 
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 11.5px;
-  padding: 20px 16px 60px;
-  min-width: 1200px;
-}
+.conc-banner{background:var(--ink);color:#fff;padding:6px 12px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;margin-bottom:12px;}
 
-/* ─── HEADER ─── */
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-bottom: 2.5px solid var(--ink);
-  padding-bottom: 10px;
-  margin-bottom: 14px;
-}
-.page-header h1 {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-.page-header .sub {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
-  color: var(--ink-faint);
-  letter-spacing: 2px;
-  margin-top: 3px;
-}
-.header-meta {
-  text-align: right;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 8.5px;
-  color: var(--ink-faint);
-  line-height: 1.9;
-}
+.grid{display:grid;grid-template-columns:62px repeat(5,1fr);border:1.5px solid var(--ink);border-radius:3px;overflow:hidden;background:var(--rule);gap:1px;}
 
-/* ─── LEGEND ─── */
-.legend {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 9.5px;
-  font-family: 'IBM Plex Mono', monospace;
-  letter-spacing: 0.5px;
-  color: var(--ink-mid);
-}
-.ldot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
-.legend-note {
-  margin-left: auto;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 8.5px;
-  color: var(--ink-faint);
-}
+.th{padding:7px 8px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:2px;background:var(--bg);}
+.th-sub{font-size:7.5px;font-weight:400;color:var(--ink-faint);letter-spacing:0.5px;}
+.th-wing{background:var(--aw-l);color:var(--aw);}
+.th-vstab{background:var(--at-l);color:var(--at);}
+.th-hstab{background:var(--at-l);color:var(--at);}
+.th-fuse{background:var(--mc-l);color:var(--mc);}
+.th-prop{background:var(--pp-l);color:var(--pp);}
 
-/* ─── CONCURRENT BANNER ─── */
-.conc-banner {
-  background: var(--ink);
-  color: #fff;
-  padding: 6px 12px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+.sess{background:var(--ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 3px;gap:2px;}
+.sess-num{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700;line-height:1;opacity:.9;}
+.sess-lbl{font-family:'IBM Plex Mono',monospace;font-size:6.5px;letter-spacing:0.5px;opacity:.55;text-align:center;}
+.sess-pre{background:#707070;}
+.sess-test{background:var(--ch);}
 
-/* ─── GRID ─── */
-.grid {
-  display: grid;
-  grid-template-columns: 62px repeat(5, 1fr);
-  border: 1.5px solid var(--ink);
-  border-radius: 3px;
-  overflow: hidden;
-  background: var(--rule);
-  gap: 1px;
-}
+.cell{background:var(--paper);padding:7px 9px;vertical-align:top;}
+.cell.empty{background:repeating-linear-gradient(45deg,#faf9f8,#faf9f8 5px,#f3f1ee 5px,#f3f1ee 7px);}
+.cell.done{background:#f8f8f8;display:flex;align-items:center;justify-content:center;}
+.done-mark{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--rule-dark);text-align:center;letter-spacing:1px;line-height:1.6;}
 
-/* ─── TRACK HEADERS ─── */
-.th {
-  padding: 7px 8px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 2px;
-  background: var(--bg);
-}
-.th-sub { font-size: 7.5px; font-weight: 400; color: var(--ink-faint); letter-spacing: 0.5px; }
-.th-wing  { background: var(--aero-w-l); color: var(--aero-w); }
-.th-vstab { background: var(--aero-t-l); color: var(--aero-t); }
-.th-hstab { background: var(--aero-t-l); color: var(--aero-t); }
-.th-fuse  { background: var(--mech-l);   color: var(--mech); }
-.th-prop  { background: var(--prop-l);   color: var(--prop); }
+.badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:1px;padding:2px 6px;border-radius:2px;margin-bottom:5px;margin-top:1px;}
+.b-wing{background:var(--aw-m);color:var(--aw);}
+.b-ail{background:#90b8ff;color:#0030a0;}
+.b-vstab{background:var(--at-m);color:var(--at);}
+.b-hstab{background:#ffd090;color:#804000;}
+.b-fuse{background:var(--mc-m);color:var(--mc);}
+.b-fuse-half{background:#f8b0a0;color:#700000;}
+.b-lg{background:#ffa898;color:#600000;}
+.b-prop{background:var(--pp-m);color:var(--pp);}
+.b-test{background:var(--ch-m);color:var(--ch);}
+.b-pre{background:#d8d0c8;color:#404040;}
 
-/* ─── SESSION LABEL ─── */
-.sess {
-  background: var(--ink);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 3px;
-  gap: 2px;
-}
-.sess-num { font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 700; line-height: 1; opacity: .9; }
-.sess-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 6.5px; letter-spacing: 0.5px; opacity: .55; text-align: center; }
-.sess-pre  { background: #707070; }
-.sess-test { background: var(--checks); }
+.tl{list-style:none;}
+.tl li{display:flex;gap:5px;align-items:flex-start;padding:2.5px 0;border-bottom:1px solid #f4f1ec;line-height:1.4;}
+.tl li:last-child{border-bottom:none;}
+.tnum{font-family:'IBM Plex Mono',monospace;font-size:7.5px;color:var(--rule-dark);min-width:17px;padding-top:1.5px;flex-shrink:0;}
+.tdot{width:5px;height:5px;border-radius:1px;margin-top:4px;flex-shrink:0;}
+.ttxt{font-size:10px;color:var(--ink);}
+.ttxt.dry{color:var(--ink-faint);font-style:italic;}
 
-/* ─── TASK CELL ─── */
-.cell {
-  background: var(--paper);
-  padding: 7px 9px;
-  vertical-align: top;
-}
-.cell.empty {
-  background: repeating-linear-gradient(45deg, #faf9f8, #faf9f8 5px, #f3f1ee 5px, #f3f1ee 7px);
-}
-.cell.empty-done {
-  background: #f8f8f8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.done-mark {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 8px;
-  color: var(--rule-dark);
-  text-align: center;
-  letter-spacing: 1px;
-  line-height: 1.6;
-}
+.note{margin-top:5px;background:#fffbe6;border:1px solid #e8d440;border-radius:2px;padding:3px 6px;font-size:9px;color:#605000;line-height:1.4;}
+.note-warn{background:#fff0e0;border-color:#f08030;color:#703000;}
+.note-info{background:#e8f4ff;border-color:#60a0e0;color:#204080;}
 
-/* ─── DAY BADGE ─── */
-.badge {
-  display: inline-block;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 2px 6px;
-  border-radius: 2px;
-  margin-bottom: 5px;
-  margin-top: 1px;
-}
-.badge + .badge { margin-left: 3px; }
-.b-wing  { background: var(--aero-w-m); color: var(--aero-w); }
-.b-ail   { background: #90b8ff; color: #0030a0; }
-.b-vstab { background: var(--aero-t-m); color: var(--aero-t); }
-.b-hstab { background: #ffd090; color: #804000; }
-.b-fuse  { background: var(--mech-m);   color: var(--mech); }
-.b-lg    { background: #ffa898; color: #600000; }
-.b-prop  { background: var(--prop-m);   color: var(--prop); }
-.b-test  { background: var(--checks-m); color: var(--checks); }
-.b-pre   { background: #d8d0c8;         color: #404040; }
+.divline{margin-top:6px;margin-bottom:4px;border:none;border-top:1px dashed var(--rule-dark);}
 
-/* ─── TASK LIST ─── */
-.tl { list-style: none; }
-.tl li {
-  display: flex;
-  gap: 5px;
-  align-items: flex-start;
-  padding: 2px 0;
-  border-bottom: 1px solid #f4f1ec;
-  line-height: 1.4;
-}
-.tl li:last-child { border-bottom: none; }
-.tnum {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 7.5px;
-  color: var(--rule-dark);
-  min-width: 17px;
-  padding-top: 1.5px;
-  flex-shrink: 0;
-}
-.tdot {
-  width: 5px;
-  height: 5px;
-  border-radius: 1px;
-  margin-top: 4px;
-  flex-shrink: 0;
-}
-.ttxt { font-size: 10px; color: var(--ink); }
-.ttxt.dry { color: var(--ink-faint); font-style: italic; }
-.ttxt.shared { color: var(--ink-mid); }
+.page-footer{margin-top:14px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--ink-faint);letter-spacing:0.5px;border-top:1px solid var(--rule-dark);padding-top:8px;}
 
-/* ─── CALLOUT ─── */
-.note {
-  margin-top: 5px;
-  background: #fffbe6;
-  border: 1px solid #e8d440;
-  border-radius: 2px;
-  padding: 3px 6px;
-  font-size: 9px;
-  color: #605000;
-  line-height: 1.4;
-}
-.note-warn { background: #fff0e0; border-color: #f08030; color: #703000; }
-.note-info { background: #e8f4ff; border-color: #60a0e0; color: #204080; }
-
-/* ─── SECTION DIVIDER ─── */
-.section-div {
-  grid-column: 1 / -1;
-  background: var(--ink);
-  color: #aaa;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 3px;
-  padding: 3px 10px;
-  text-align: center;
-}
-
-/* Row tints */
-.row-pre   .cell:not(.empty) { background: #fafaf8; }
-.row-s1    .cell:not(.empty) { background: #fff; }
-.row-s2    .cell:not(.empty) { background: #fdfcfa; }
-.row-s3    .cell:not(.empty) { background: #fff; }
-.row-s4    .cell:not(.empty) { background: #fdfcfa; }
-.row-s5    .cell:not(.empty) { background: #fff; }
-.row-s6    .cell:not(.empty) { background: #fdfcfa; }
-.row-test  .cell:not(.empty) { background: var(--checks-l); }
-
-/* ─── FOOTER ─── */
-.page-footer {
-  margin-top: 14px;
-  display: flex;
-  justify-content: space-between;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 8px;
-  color: var(--ink-faint);
-  letter-spacing: 0.5px;
-  border-top: 1px solid var(--rule-dark);
-  padding-top: 8px;
-}
-
-@media print {
-  body { padding: 10px; min-width: unset; font-size: 10px; }
-  .page-header h1 { font-size: 14px; }
-  .ttxt { font-size: 9px; }
-  .grid { gap: 1px; }
-}
+@media print{body{padding:10px;min-width:unset;font-size:10px;} .page-header h1{font-size:14px;} .ttxt{font-size:9px;}}
 </style>
 </head>
 <body>
@@ -305,446 +90,408 @@ body {
     <div class="sub">AIAA DESIGN BUILD FLY · WICHITA, KS · APRIL 2026 · CORNELL DBF</div>
   </div>
   <div class="header-meta">
-    160+ TASKS · 25 SESSIONS<br>
-    3 CONCURRENT SUBTEAMS<br>
-    ⏱ = cure / dry hold<br>
-    # = Notion order
+    160 TASKS · 24 SESSION GROUPS<br>
+    3 CONCURRENT SUBTEAM TRACKS<br>
+    ⏱ = cure / dry hold · # = Notion order
   </div>
 </div>
 
 <div class="legend">
-  <div class="legend-item"><div class="ldot" style="background:var(--aero-w)"></div>AERO WING TEAM</div>
-  <div class="legend-item"><div class="ldot" style="background:var(--aero-t)"></div>AERO TAIL TEAM</div>
-  <div class="legend-item"><div class="ldot" style="background:var(--mech)"></div>MECH FUSE TEAM</div>
-  <div class="legend-item"><div class="ldot" style="background:#600000)"></div>MECH LG TEAM</div>
-  <div class="legend-item"><div class="ldot" style="background:var(--prop)"></div>PROP TEAM</div>
-  <div class="legend-item"><div class="ldot" style="background:var(--checks)"></div>ALL TEAMS</div>
-  <div class="legend-note">Columns in same row are CONCURRENT · read down each column for sequential work</div>
+  <div class="legend-item"><div class="ldot" style="background:var(--aw)"></div>AERO WING TEAM</div>
+  <div class="legend-item"><div class="ldot" style="background:var(--at)"></div>AERO TAIL TEAM</div>
+  <div class="legend-item"><div class="ldot" style="background:var(--mc)"></div>MECH FUSE/LG TEAM</div>
+  <div class="legend-item"><div class="ldot" style="background:var(--pp)"></div>PROP TEAM</div>
+  <div class="legend-item"><div class="ldot" style="background:var(--ch)"></div>ALL TEAMS</div>
+  <div class="legend-note">Columns in same row are CONCURRENT · read down each column for sequential order · # = Notion doc order</div>
 </div>
 
-<div class="conc-banner">
-  ↔ SAME ROW = CONCURRENT  ·  READ DOWN EACH COLUMN FOR SEQUENTIAL ORDER  ·  ↕ ROWS ARE WORK SESSIONS
-</div>
+<div class="conc-banner">↔ SAME ROW = CONCURRENT WORK &nbsp;·&nbsp; READ DOWN EACH COLUMN FOR SEQUENTIAL ORDER &nbsp;·&nbsp; ↕ ROWS ARE WORK SESSIONS</div>
 
 <div class="grid">
 
-  <!-- ═══════════ TRACK HEADERS ═══════════ -->
-  <div class="th" style="background:#f0ede8; color:var(--ink-mid);">SESSION</div>
-  <div class="th th-wing">WING + AILERONS<div class="th-sub">AERO TEAM A</div></div>
-  <div class="th th-vstab">V.STAB<div class="th-sub">AERO TEAM B</div></div>
-  <div class="th th-hstab">H.STAB + ELEV<div class="th-sub">AERO TEAM B</div></div>
-  <div class="th th-fuse">FUSELAGE + LG<div class="th-sub">MECH TEAM</div></div>
-  <div class="th th-prop">PROP + AVIONICS<div class="th-sub">PROP TEAM</div></div>
+<!-- ══ TRACK HEADERS ══ -->
+<div class="th" style="background:#f0ede8;color:var(--ink-mid);">SESSION</div>
+<div class="th th-wing">WING + AILERONS<div class="th-sub">AERO TEAM A</div></div>
+<div class="th th-vstab">V.STAB<div class="th-sub">AERO TEAM B</div></div>
+<div class="th th-hstab">H.STAB + ELEV<div class="th-sub">AERO TEAM B</div></div>
+<div class="th th-fuse">FUSELAGE + LG<div class="th-sub">MECH TEAM</div></div>
+<div class="th th-prop">PROP + AVIONICS<div class="th-sub">PROP TEAM</div></div>
 
-  <!-- ═══════════ PRE BUILD ═══════════ -->
-  <div class="sess sess-pre row-pre">
-    <span style="font-size:7px;letter-spacing:1px;opacity:.7">PRE</span>
-    <span class="sess-num" style="font-size:11px;line-height:1.2">BUILD</span>
-    <span class="sess-lbl">ALL TEAMS</span>
+<!-- ══ PRE BUILD ══ -->
+<div class="sess sess-pre"><span style="font-size:7px;letter-spacing:1px;opacity:.7">PRE</span><span class="sess-num" style="font-size:11px;line-height:1.2">BUILD</span><span class="sess-lbl">ALL TEAMS</span></div>
+
+<div class="cell">
+  <div><span class="badge b-pre">AERO PREP</span></div>
+  <ul class="tl">
+    <li><span class="tnum">1</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Laser cuts</span></li>
+    <li><span class="tnum">2</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Main spar cutting</span></li>
+    <li><span class="tnum">3</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Tail spar cutting</span></li>
+    <li><span class="tnum">4</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Tail spar drilling</span></li>
+    <li><span class="tnum">5</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">3D printing of alignment rigs</span></li>
+    <li><span class="tnum">6</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">3D printing of leading edges</span></li>
+    <li><span class="tnum">7</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">3D printing of box</span></li>
+    <li><span class="tnum">8</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">3D printing of integration piece</span></li>
+    <li><span class="tnum">9</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Cutting carbon fiber stiffener</span></li>
+    <li><span class="tnum">10</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Soaking the balsa for wood leading edges</span></li>
+    <li><span class="tnum">11</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Finding the servos and setting them up</span></li>
+    <li><span class="tnum">12</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Cutting the triangle combs</span></li>
+    <li><span class="tnum">13</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Find control rods</span></li>
+    <li><span class="tnum">14</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Cut control horns</span></li>
+    <li><span class="tnum">15</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Cut stringers</span></li>
+    <li><span class="tnum">16</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Cut balsa blocks</span></li>
+    <li><span class="tnum">17</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Find CA hinges</span></li>
+    <li><span class="tnum">18</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Slits in balsa blocks</span></li>
+  </ul>
+</div>
+
+<div class="cell empty"></div>
+<div class="cell empty"></div>
+
+<div class="cell">
+  <div><span class="badge b-pre">MECH PREP</span></div>
+  <ul class="tl">
+    <li><span class="tnum">78</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Acquire carbon fiber</span></li>
+    <li><span class="tnum">79</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Measure and cut carbon fiber and proper layers</span></li>
+    <li><span class="tnum">80</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">3D print molds</span></li>
+    <li><span class="tnum">81</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">3D print mech shelf</span></li>
+    <li><span class="tnum">82</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Heat set snap in mech shelf</span></li>
+    <li><span class="tnum">83</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">3D print tail spar holder</span></li>
+    <li><span class="tnum">84</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Laser cut wing plate</span></li>
+    <li><span class="tnum">85</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Laser cut bulkheads</span></li>
+    <li><span class="tnum">86</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Laser cut duck hatch</span></li>
+    <li><span class="tnum">87</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Laser cut puck hatch</span></li>
+    <li><span class="tnum">88</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Laser cut front offset piece</span></li>
+    <li><span class="tnum">89</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Prep molds and sand if necessary</span></li>
+    <li><span class="tnum">114</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill holes in tail spar</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-pre">PROP PREP</span></div>
+  <ul class="tl">
+    <li><span class="tnum">143</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Make all wire and wire extensions</span></li>
+    <li><span class="tnum">144</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Make sure everything is crimped</span></li>
+    <li><span class="tnum">145</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Print fuse holder with hole</span></li>
+    <li><span class="tnum">146</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Print nosecone</span></li>
+    <li><span class="tnum">147</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Glue in fuse holder</span></li>
+  </ul>
+</div>
+
+<!-- ══ SESSION 1: Wing-1 || V-1 || H-1 || Fuse-1 ══ -->
+<div class="sess"><span class="sess-num">1</span><span class="sess-lbl">CONCURRENT</span></div>
+
+<div class="cell">
+  <div><span class="badge b-wing">WING-1</span></div>
+  <ul class="tl">
+    <li><span class="tnum">19</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Put wing ribs on main spar</span></li>
+    <li><span class="tnum">20</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Align all the pieces on the main spar</span></li>
+    <li><span class="tnum">21</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Glue the ribs and comb together on the wing spar</span></li>
+    <li><span class="tnum">22</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Do the same for both sides of the wing with the integration piece in the middle</span></li>
+    <li><span class="tnum">23</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Glue in wing triangles</span></li>
+    <li><span class="tnum">24</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Glue in integration piece ribs</span></li>
+    <li><span class="tnum">25</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Epoxy wing ribs to integration piece</span></li>
+    <li><span class="tnum">26</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt dry">⏱ Wing dry period</span></li>
+    <li><span class="tnum">27</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Mechanically zero servos</span></li>
+    <li><span class="tnum">28</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Install servos on the wing</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-vstab">V-1</span></div>
+  <ul class="tl">
+    <li><span class="tnum">44</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Align the vstab ribs on the stiffener</span></li>
+    <li><span class="tnum">45</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Align the comb and the leading edge of the vstab</span></li>
+    <li><span class="tnum">46</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt dry">⏱ Wood glue and dry (vstab)</span></li>
+    <li><span class="tnum">47</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Install servos (vstab)</span></li>
+    <li><span class="tnum">56</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Make control surfaces (vstab)</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-hstab">H-1</span></div>
+  <ul class="tl">
+    <li><span class="tnum">53</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Slide box onto tail spar</span></li>
+    <li><span class="tnum">63</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Align hstab ribs on back comb and alignment rig</span></li>
+    <li><span class="tnum">64</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Add in middle comb and front comb</span></li>
+    <li><span class="tnum">65</span><div class="tdot" style="background:#804000"></div><span class="ttxt dry">⏱ Wood glue and dry (hstab)</span></li>
+    <li><span class="tnum">66</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Install servo (hstab)</span></li>
+    <li><span class="tnum">73</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Assemble elevator using alignment rig</span></li>
+  </ul>
+  <div class="note note-warn">⚠ hstab goes on plane before vstab</div>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-fuse">FUSE-1</span></div>
+  <ul class="tl">
+    <li><span class="tnum">90</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Tape initial layers into molds</span></li>
+    <li><span class="tnum">91</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Measure out epoxy</span></li>
+    <li><span class="tnum">92</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Epoxy the carbon fiber layers</span></li>
+    <li><span class="tnum">93</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Lay carbon fiber in mold</span></li>
+    <li><span class="tnum">94</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Add rest of the layers</span></li>
+    <li><span class="tnum">95</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Add inner molds</span></li>
+    <li><span class="tnum">96</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Assemble vacuum bag</span></li>
+    <li><span class="tnum">97</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Put in vacuum bag</span></li>
+    <li><span class="tnum">98</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt dry">⏱ Dry period (fuselage layup)</span></li>
+  </ul>
+</div>
+
+<div class="cell empty"></div>
+
+<!-- ══ SESSION 2: Wing-2 + Ail-1 || V-2 || H-2 || Fuse-2 ══ -->
+<div class="sess"><span class="sess-num">2</span><span class="sess-lbl">CONCURRENT</span></div>
+
+<div class="cell">
+  <div><span class="badge b-wing">WING-2</span></div>
+  <ul class="tl">
+    <li><span class="tnum">29</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Route wires through wing</span></li>
+    <li><span class="tnum">30</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Stringers and balsa leading edges to the wing</span></li>
+    <li><span class="tnum">31</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Balsa blocks to the wing</span></li>
+    <li><span class="tnum">32</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Balsa leading edges are glued</span></li>
+    <li><span class="tnum">32</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt dry">⏱ Yet another drying period</span></li>
+    <li><span class="tnum">35</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Install CA hinges on wing</span></li>
+    <li><span class="tnum">38</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Monokote wing</span></li>
+  </ul>
+  <hr class="divline">
+  <div><span class="badge b-ail">AIL-1</span></div>
+  <ul class="tl">
+    <li><span class="tnum">33</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt">Build control surfaces</span></li>
+    <li><span class="tnum">33</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt dry">⏱ Let aileron dry</span></li>
+  </ul>
+  <div class="note note-info">💡 Ail-1 runs during Wing-2 dry window</div>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-vstab">V-2</span></div>
+  <ul class="tl">
+    <li><span class="tnum">48</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Zero servos (vstab)</span></li>
+    <li><span class="tnum">49</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Run servo wires through the tail spar</span></li>
+    <li><span class="tnum">50</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Wire the vstab servos</span></li>
+    <li><span class="tnum">51</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Install balsa stringers and leading edge (vstab)</span></li>
+    <li><span class="tnum">52</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Install balsa blocks and CA hinges (vstab)</span></li>
+    <li><span class="tnum">55</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Monokote vstab</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-hstab">H-2</span></div>
+  <ul class="tl">
+    <li><span class="tnum">67</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Zero servo (hstab)</span></li>
+    <li><span class="tnum">68</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Wire servo (hstab)</span></li>
+    <li><span class="tnum">69</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Add balsa stringers and leading edge (hstab)</span></li>
+    <li><span class="tnum">70</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Add balsa blocks that are already cut (hstab)</span></li>
+    <li><span class="tnum">71</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Monokote hstab</span></li>
+    <li><span class="tnum">72</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Install CA hinges (hstab)</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-fuse">FUSE-2</span></div>
+  <ul class="tl">
+    <li><span class="tnum">99</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Remove from molds</span></li>
+    <li><span class="tnum">100</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Cut out if necessary</span></li>
+    <li><span class="tnum">101</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Post-process fuselage to correct shape</span></li>
+  </ul>
+</div>
+
+<div class="cell empty"></div>
+
+<!-- ══ SESSION 3: Wing-3 + Ail-2 || V-3 || H-3 || Fuse-3 + Fuse-3.5 ══ -->
+<div class="sess"><span class="sess-num">3</span><span class="sess-lbl">CONCURRENT</span></div>
+
+<div class="cell">
+  <div><span class="badge b-ail">AIL-2</span></div>
+  <ul class="tl">
+    <li><span class="tnum">34</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt">Half monokote control surfaces</span></li>
+    <li><span class="tnum">36</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt">Install control surfaces on wing with half monokote and CA them in place</span></li>
+    <li><span class="tnum">37</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt">Finish monokoting the control surfaces</span></li>
+  </ul>
+  <hr class="divline">
+  <div><span class="badge b-wing">WING-3</span></div>
+  <ul class="tl">
+    <li><span class="tnum">36</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Install control surfaces on wing with half monokote and CA them in place</span></li>
+    <li><span class="tnum">40</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Install control horns and such (wing)</span></li>
+    <li><span class="tnum">42</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Drill integration holes (wing)</span></li>
+    <li><span class="tnum">43</span><div class="tdot" style="background:var(--aw)"></div><span class="ttxt">Cut slit in integration piece monokote</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-vstab">V-3</span></div>
+  <ul class="tl">
+    <li><span class="tnum">54</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Screw vstab to tail spar</span></li>
+    <li><span class="tnum">57</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Balsa blocks on control surface (vstab)</span></li>
+    <li><span class="tnum">58</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Half monokote control surface (vstab)</span></li>
+    <li><span class="tnum">59</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Install rudder onto vstab</span></li>
+    <li><span class="tnum">60</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Finish monokoting rudder</span></li>
+    <li><span class="tnum">61</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt">Install control horns and such (vstab)</span></li>
+    <li><span class="tnum">62</span><div class="tdot" style="background:var(--at)"></div><span class="ttxt dry">⏱ Drying period (vstab)</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-hstab">H-3</span></div>
+  <ul class="tl">
+    <li><span class="tnum">74</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Half monokote elevator</span></li>
+    <li><span class="tnum">75</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Install balsa blocks (elevator)</span></li>
+    <li><span class="tnum">76</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Install elevator and glue in CA hinges</span></li>
+    <li><span class="tnum">77</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Finish monokoting elevator</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-fuse">FUSE-3</span></div>
+  <ul class="tl">
+    <li><span class="tnum">102</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill integration holes using alignment rigs</span></li>
+    <li><span class="tnum">106</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill the wire hole</span></li>
+    <li><span class="tnum">108</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill the wing integration holes</span></li>
+    <li><span class="tnum">112</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill duck hatch holes</span></li>
+  </ul>
+  <hr class="divline">
+  <div><span class="badge b-fuse-half">FUSE-3.5</span></div>
+  <ul class="tl">
+    <li><span class="tnum">105</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill motor integration holes</span></li>
+    <li><span class="tnum">107</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill the landing gear holes</span></li>
+    <li><span class="tnum">109</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill the tail spar integration holes</span></li>
+    <li><span class="tnum">113</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Drill avionics hatch holes</span></li>
+  </ul>
+</div>
+
+<div class="cell empty"></div>
+
+<!-- ══ SESSION 4: (Aero done) || Fuse-4 || P-1 ══ -->
+<div class="sess"><span class="sess-num">4</span><span class="sess-lbl">CONCURRENT</span></div>
+
+<div class="cell done"><div class="done-mark">AERO WING<br>COMPLETE ✓</div></div>
+<div class="cell done"><div class="done-mark">V.STAB<br>COMPLETE ✓</div></div>
+<div class="cell done"><div class="done-mark">H.STAB<br>COMPLETE ✓</div></div>
+
+<div class="cell">
+  <div><span class="badge b-fuse">FUSE-4</span></div>
+  <ul class="tl">
+    <li><span class="tnum">103</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Cut the avionics hatch</span></li>
+    <li><span class="tnum">104</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Cut the slot in the avionics hatch for fuse and switch</span></li>
+    <li><span class="tnum">110</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Dremel the wing wire holes</span></li>
+    <li><span class="tnum">111</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Dremel hole for front gear servo wire</span></li>
+    <li><span class="tnum">115</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Temporarily screw halves together</span></li>
+    <li><span class="tnum">116</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Measure out and mark the puck hatch</span></li>
+    <li><span class="tnum">117</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Dremel the puck hatch in each side</span></li>
+    <li><span class="tnum">119</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Take the two halves apart</span></li>
+  </ul>
+</div>
+
+<div class="cell">
+  <div><span class="badge b-prop">P-1</span></div>
+  <ul class="tl">
+    <li><span class="tnum">148</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Slide in fuse</span></li>
+    <li><span class="tnum">149</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Install receiver and gyro</span></li>
+    <li><span class="tnum">150</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Plug in ESC to motor</span></li>
+    <li><span class="tnum">151</span><div class="tdot" style="background:var(--pp)"></div><span class="ttxt">Wire receiver and gyro</span></li>
+  </ul>
+</div>
+
+<!-- ══ SESSION 5: LG-1 + LG-2 + Fuse-5 + Fuse-5.5 ══ -->
+<div class="sess"><span class="sess-num">5</span><span class="sess-lbl">MECH SPLIT</span></div>
+
+<div class="cell empty"></div>
+<div class="cell empty"></div>
+<div class="cell empty"></div>
+
+<div class="cell">
+  <div style="display:flex;gap:4px;align-items:center;margin-bottom:5px">
+    <span class="badge b-lg" style="margin-bottom:0">LG-1</span>
+    <span style="font-size:8px;color:var(--ink-faint);font-family:'IBM Plex Mono',monospace">concurrent with →</span>
+    <span class="badge b-lg" style="margin-bottom:0">LG-2</span>
   </div>
-
-  <!-- Pre build · Wing/Aero -->
-  <div class="cell row-pre">
-    <div><span class="badge b-pre">AERO PREP</span></div>
-    <ul class="tl">
-      <li><span class="tnum">01</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Laser cuts</span></li>
-      <li><span class="tnum">02</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Main spar cutting</span></li>
-      <li><span class="tnum">03</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Tail spar cutting</span></li>
-      <li><span class="tnum">04</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Tail spar drilling</span></li>
-      <li><span class="tnum">05</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">3D print alignment rigs</span></li>
-      <li><span class="tnum">06</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">3D print leading edges</span></li>
-      <li><span class="tnum">07</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">3D print box</span></li>
-      <li><span class="tnum">08</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">3D print integration piece</span></li>
-      <li><span class="tnum">09</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Cut carbon fiber stiffener</span></li>
-      <li><span class="tnum">10</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Soak balsa for leading edges</span></li>
-      <li><span class="tnum">11</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Find and set up servos</span></li>
-      <li><span class="tnum">12</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Cut triangle combs</span></li>
-      <li><span class="tnum">13</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Find control rods</span></li>
-      <li><span class="tnum">14</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Cut control horns</span></li>
-      <li><span class="tnum">15</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Cut stringers</span></li>
-      <li><span class="tnum">16</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Cut balsa blocks</span></li>
-      <li><span class="tnum">17</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Find CA hinges</span></li>
-      <li><span class="tnum">18</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Slits in balsa blocks</span></li>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px">
+    <ul class="tl" style="border-right:1px solid var(--rule);padding-right:4px">
+      <li><span class="tnum">126</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Cut metal pieces for landing gear</span></li>
+      <li><span class="tnum">127</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Drill metal pieces for landing gear</span></li>
+      <li><span class="tnum">128</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Drill main landing gear</span></li>
     </ul>
-  </div>
-
-  <!-- Pre build · VStab -->
-  <div class="cell empty row-pre"></div>
-
-  <!-- Pre build · HStab -->
-  <div class="cell empty row-pre"></div>
-
-  <!-- Pre build · Fuse/Mech -->
-  <div class="cell row-pre">
-    <div><span class="badge b-pre">MECH PREP</span></div>
     <ul class="tl">
-      <li><span class="tnum">78</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Acquire carbon fiber</span></li>
-      <li><span class="tnum">79</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Measure and cut CF layers</span></li>
-      <li><span class="tnum">80</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">3D print molds</span></li>
-      <li><span class="tnum">81</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">3D print mech shelf</span></li>
-      <li><span class="tnum">82</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Heat set snap in mech shelf</span></li>
-      <li><span class="tnum">83</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">3D print tail spar holder</span></li>
-      <li><span class="tnum">84</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Laser cut wing plate</span></li>
-      <li><span class="tnum">85</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Laser cut bulkheads</span></li>
-      <li><span class="tnum">86</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Laser cut duck hatch</span></li>
-      <li><span class="tnum">87</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Laser cut puck hatch</span></li>
-      <li><span class="tnum">88</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Laser cut front offset piece</span></li>
-      <li><span class="tnum">89</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Prep molds and sand</span></li>
-      <li><span class="tnum">114</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill holes in tail spar</span></li>
-    </ul>
-  </div>
-
-  <!-- Pre build · Prop -->
-  <div class="cell row-pre">
-    <div><span class="badge b-pre">PROP PREP</span></div>
-    <ul class="tl">
-      <li><span class="tnum">143</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Make all wire and wire extensions</span></li>
-      <li><span class="tnum">144</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Make sure everything is crimped</span></li>
-      <li><span class="tnum">145</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Print fuse holder with hole</span></li>
-      <li><span class="tnum">146</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Print nosecone</span></li>
-      <li><span class="tnum">147</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Glue in fuse holder</span></li>
-      <li><span class="tnum">148</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Slide in fuse</span></li>
-    </ul>
-  </div>
-
-  <!-- ═══════════ SESSION 1 ═══════════ -->
-  <div class="sess row-s1"><span class="sess-num">1</span><span class="sess-lbl">CONCURRENT</span></div>
-
-  <!-- S1 · Wing-1 -->
-  <div class="cell row-s1">
-    <div><span class="badge b-wing">WING-1</span></div>
-    <ul class="tl">
-      <li><span class="tnum">19</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Put wing ribs on main spar</span></li>
-      <li><span class="tnum">20</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Align all pieces on main spar</span></li>
-      <li><span class="tnum">21</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Glue ribs and comb on wing spar</span></li>
-      <li><span class="tnum">22</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Both sides + integration piece in middle</span></li>
-      <li><span class="tnum">23</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Glue in wing triangles</span></li>
-      <li><span class="tnum">24</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Epoxy wing ribs to integration piece</span></li>
-      <li><span class="tnum">25</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Glue in integration piece ribs</span></li>
-      <li><span class="tnum">26</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt dry">⏱ Wing dry period</span></li>
-      <li><span class="tnum">27</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Mechanically zero servos</span></li>
-      <li><span class="tnum">28</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Install servos on the wing</span></li>
-      <li><span class="tnum">29</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Route wires through wing</span></li>
-      <li><span class="tnum">30</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Stringers and balsa leading edges</span></li>
-      <li><span class="tnum">31</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Balsa blocks to the wing</span></li>
-    </ul>
-  </div>
-
-  <!-- S1 · V-1 -->
-  <div class="cell row-s1">
-    <div><span class="badge b-vstab">V-1</span></div>
-    <ul class="tl">
-      <li><span class="tnum">44</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Align vstab ribs on stiffener</span></li>
-      <li><span class="tnum">45</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Align comb and vstab leading edge</span></li>
-      <li><span class="tnum">46</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt dry">⏱ Wood glue and dry</span></li>
-      <li><span class="tnum">47</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Install servos</span></li>
-      <li><span class="tnum">48</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Zero servos</span></li>
-      <li><span class="tnum">49</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Run servo wires through tail spar</span></li>
-      <li><span class="tnum">50</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Wire the vstab servos</span></li>
-      <li><span class="tnum">51</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Install balsa stringers + leading edge</span></li>
-      <li><span class="tnum">52</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Install balsa blocks + CA hinges</span></li>
-      <li><span class="tnum">53</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Slide box onto tail spar</span></li>
-      <li><span class="tnum">54</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Screw vstab to tail spar</span></li>
-      <li><span class="tnum">55</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Monokote vstab</span></li>
-      <li><span class="tnum">56</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Make control surfaces (rudder)</span></li>
-    </ul>
-  </div>
-
-  <!-- S1 · H-1 -->
-  <div class="cell row-s1">
-    <div><span class="badge b-hstab">H-1</span></div>
-    <ul class="tl">
-      <li><span class="tnum">63</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Align hstab ribs on back comb + rig</span></li>
-      <li><span class="tnum">64</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Add middle comb and front comb</span></li>
-      <li><span class="tnum">65</span><div class="tdot" style="background:#804000"></div><span class="ttxt dry">⏱ Wood glue and dry</span></li>
-      <li><span class="tnum">66</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Install servo</span></li>
-      <li><span class="tnum">67</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Zero servo</span></li>
-      <li><span class="tnum">68</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Wire servo</span></li>
-      <li><span class="tnum">69</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Add balsa stringers + leading edge</span></li>
-      <li><span class="tnum">70</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Add balsa blocks</span></li>
-      <li><span class="tnum">71</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Monokote hstab</span></li>
-      <li><span class="tnum">72</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Install CA hinges</span></li>
-      <li><span class="tnum">73</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Assemble elevator using alignment rig</span></li>
-    </ul>
-    <div class="note note-warn">⚠ hstab goes on plane before vstab</div>
-  </div>
-
-  <!-- S1 · Fuse-1 -->
-  <div class="cell row-s1">
-    <div><span class="badge b-fuse">FUSE-1</span></div>
-    <ul class="tl">
-      <li><span class="tnum">90</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Tape initial layers into molds</span></li>
-      <li><span class="tnum">91</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Measure out epoxy</span></li>
-      <li><span class="tnum">92</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Epoxy the carbon fiber layers</span></li>
-      <li><span class="tnum">93</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Lay carbon fiber in mold</span></li>
-      <li><span class="tnum">94</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Add rest of the layers</span></li>
-      <li><span class="tnum">95</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Add inner molds</span></li>
-      <li><span class="tnum">96</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Assemble vacuum bag</span></li>
-      <li><span class="tnum">97</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Put in vacuum bag</span></li>
-      <li><span class="tnum">98</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt dry">⏱ Dry period</span></li>
-    </ul>
-  </div>
-
-  <!-- S1 · Prop (empty, still in pre build) -->
-  <div class="cell empty row-s1"></div>
-
-  <!-- ═══════════ SESSION 2 ═══════════ -->
-  <div class="sess row-s2"><span class="sess-num">2</span><span class="sess-lbl">CONCURRENT</span></div>
-
-  <!-- S2 · Wing-2 + Ail-1 -->
-  <div class="cell row-s2">
-    <div><span class="badge b-wing">WING-2</span></div>
-    <ul class="tl">
-      <li><span class="tnum">32</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Balsa leading edges are glued</span></li>
-      <li><span class="tnum">32</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt dry">⏱ Yet another drying period</span></li>
-      <li><span class="tnum">35</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Install CA hinges on wing</span></li>
-    </ul>
-    <div style="margin-top:6px"></div>
-    <div><span class="badge b-ail">AIL-1</span></div>
-    <ul class="tl">
-      <li><span class="tnum">33</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt dry">⏱ Let aileron dry</span></li>
-      <li><span class="tnum">33</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt">Build control surfaces</span></li>
-    </ul>
-    <div class="note note-info">💡 Ail-1 runs during Wing-2 dry window</div>
-  </div>
-
-  <!-- S2 · V-2 -->
-  <div class="cell row-s2">
-    <div><span class="badge b-vstab">V-2</span></div>
-    <ul class="tl">
-      <li><span class="tnum">57</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Balsa blocks on control surface</span></li>
-      <li><span class="tnum">58</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Half monokote control surface</span></li>
-    </ul>
-  </div>
-
-  <!-- S2 · H-2 -->
-  <div class="cell row-s2">
-    <div><span class="badge b-hstab">H-2</span></div>
-    <ul class="tl">
-      <li><span class="tnum">74</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Half monokote elevator</span></li>
-      <li><span class="tnum">75</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Install balsa blocks (elevator)</span></li>
-    </ul>
-  </div>
-
-  <!-- S2 · Fuse-2 -->
-  <div class="cell row-s2">
-    <div><span class="badge b-fuse">FUSE-2</span></div>
-    <ul class="tl">
-      <li><span class="tnum">99</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Remove from molds</span></li>
-      <li><span class="tnum">100</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Cut out if necessary</span></li>
-      <li><span class="tnum">101</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Post-process fuselage to correct shape</span></li>
-    </ul>
-  </div>
-
-  <!-- S2 · Prop (empty) -->
-  <div class="cell empty row-s2"></div>
-
-  <!-- ═══════════ SESSION 3 ═══════════ -->
-  <div class="sess row-s3"><span class="sess-num">3</span><span class="sess-lbl">CONCURRENT</span></div>
-
-  <!-- S3 · Ail-2 + Wing-3 -->
-  <div class="cell row-s3">
-    <div><span class="badge b-ail">AIL-2</span></div>
-    <ul class="tl">
-      <li><span class="tnum">34</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt">Half monokote control surfaces</span></li>
-      <li><span class="tnum">36</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt shared">↓ Install CS on wing (see Wing-3)</span></li>
-      <li><span class="tnum">37</span><div class="tdot" style="background:#2060d0"></div><span class="ttxt">Finish monokoting control surfaces</span></li>
-    </ul>
-    <div style="margin-top:6px"></div>
-    <div><span class="badge b-wing">WING-3</span></div>
-    <ul class="tl">
-      <li><span class="tnum">36</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Install CS on wing w/ half monokote + CA</span></li>
-      <li><span class="tnum">38</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Monokote wing</span></li>
-      <li><span class="tnum">40</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Install control horns and such</span></li>
-      <li><span class="tnum">42</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Drill integration holes (wing)</span></li>
-      <li><span class="tnum">43</span><div class="tdot" style="background:var(--aero-w)"></div><span class="ttxt">Cut slit in integration piece monokote</span></li>
-    </ul>
-  </div>
-
-  <!-- S3 · V-3 -->
-  <div class="cell row-s3">
-    <div><span class="badge b-vstab">V-3</span></div>
-    <ul class="tl">
-      <li><span class="tnum">59</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Install rudder onto vstab</span></li>
-      <li><span class="tnum">60</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Finish monokoting rudder</span></li>
-      <li><span class="tnum">61</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt">Install control horns and such</span></li>
-      <li><span class="tnum">62</span><div class="tdot" style="background:var(--aero-t)"></div><span class="ttxt dry">⏱ Drying period</span></li>
-    </ul>
-  </div>
-
-  <!-- S3 · H-3 -->
-  <div class="cell row-s3">
-    <div><span class="badge b-hstab">H-3</span></div>
-    <ul class="tl">
-      <li><span class="tnum">76</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Install elevator + glue in CA hinges</span></li>
-      <li><span class="tnum">77</span><div class="tdot" style="background:#804000"></div><span class="ttxt">Finish monokoting elevator</span></li>
-    </ul>
-  </div>
-
-  <!-- S3 · Fuse-3 + Fuse-3.5 -->
-  <div class="cell row-s3">
-    <div><span class="badge b-fuse">FUSE-3</span></div>
-    <ul class="tl">
-      <li><span class="tnum">102</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill integration holes (alignment rigs)</span></li>
-      <li><span class="tnum">103</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Cut the avionics hatch</span></li>
-      <li><span class="tnum">104</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Cut slot in avionics hatch for fuse + switch</span></li>
-      <li><span class="tnum">105</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill motor integration holes</span></li>
-      <li><span class="tnum">106</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill the wire hole</span></li>
-      <li><span class="tnum">107</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill the landing gear holes</span></li>
-      <li><span class="tnum">108</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill the wing integration holes</span></li>
-      <li><span class="tnum">109</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill the tail spar integration holes</span></li>
-      <li><span class="tnum">112</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill duck hatch holes</span></li>
-    </ul>
-    <div style="margin-top:6px"></div>
-    <div><span class="badge b-fuse" style="background:#f8b0a0">FUSE-3.5</span></div>
-    <ul class="tl">
-      <li><span class="tnum">113</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Drill avionics hatch holes</span></li>
-    </ul>
-  </div>
-
-  <!-- S3 · Prop (empty) -->
-  <div class="cell empty row-s3"></div>
-
-  <!-- ═══════════ SESSION 4 ═══════════ -->
-  <div class="sess row-s4"><span class="sess-num">4</span><span class="sess-lbl">CONCURRENT</span></div>
-
-  <!-- S4 · Wing/Aero done -->
-  <div class="cell empty-done row-s4"><div class="done-mark">AERO WING<br>COMPLETE ✓</div></div>
-
-  <!-- S4 · VStab done -->
-  <div class="cell empty-done row-s4"><div class="done-mark">V.STAB<br>COMPLETE ✓</div></div>
-
-  <!-- S4 · HStab done -->
-  <div class="cell empty-done row-s4"><div class="done-mark">H.STAB<br>COMPLETE ✓</div></div>
-
-  <!-- S4 · Fuse-4 + Fuse-5.5 -->
-  <div class="cell row-s4">
-    <div><span class="badge b-fuse">FUSE-4</span></div>
-    <ul class="tl">
-      <li><span class="tnum">110</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Dremel the wing wire holes</span></li>
-      <li><span class="tnum">111</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Dremel hole for front gear servo wire</span></li>
-      <li><span class="tnum">115</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Temporarily screw halves together</span></li>
-      <li><span class="tnum">116</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Measure out and mark puck hatch</span></li>
-      <li><span class="tnum">117</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Dremel puck hatch in each side</span></li>
-      <li><span class="tnum">118</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Assemble puck hatch door + hinge</span></li>
-      <li><span class="tnum">119</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Take the two halves apart</span></li>
-    </ul>
-    <div style="margin-top:6px"></div>
-    <div><span class="badge b-fuse" style="background:#f8b0a0">FUSE-5.5</span></div>
-    <ul class="tl">
-      <li><span class="tnum">120</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Attach tail spar to fuselage w/ 3D print</span></li>
-      <li><span class="tnum">121</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Attach wing to top half w/ wing plate</span></li>
-      <li><span class="tnum">122</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Wire servo extensions to avionics bay</span></li>
-      <li><span class="tnum">123</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Wire the satellite receiver</span></li>
+      <li><span class="tnum">129</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Install main gear wheels</span></li>
+      <li><span class="tnum">130</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Assemble front gear including strut</span></li>
     </ul>
   </div>
+  <hr class="divline">
+  <div><span class="badge b-fuse-half">FUSE-5.5</span></div>
+  <ul class="tl">
+    <li><span class="tnum">120</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Attach the tail spar to the fuselage with 3D print</span></li>
+    <li><span class="tnum">121</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Attach the wing to the top half with the wing plate</span></li>
+    <li><span class="tnum">122</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Wire the servo extensions to the avionics bay</span></li>
+    <li><span class="tnum">123</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Wire the satellite receiver</span></li>
+  </ul>
+  <hr class="divline">
+  <div><span class="badge b-fuse">FUSE-5</span></div>
+  <ul class="tl">
+    <li><span class="tnum">118</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Assemble puck hatch door and hinge mechanism</span></li>
+    <li><span class="tnum">124</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Screw on hinge for prop hatch</span></li>
+    <li><span class="tnum">131</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Wire front gear servo</span></li>
+    <li><span class="tnum">132</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Attach main gear and front gear to bottom of fuselage</span></li>
+    <li><span class="tnum">133</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Install the duck mechanism in the back of the bottom half</span></li>
+    <li><span class="tnum">134</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Put in the bulkheads and epoxy</span></li>
+    <li><span class="tnum">135</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Put in the puck mechanism and epoxy</span></li>
+    <li><span class="tnum">136</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt dry">⏱ Drying period (bulkheads/mechanisms)</span></li>
+    <li><span class="tnum">137</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Add in velcro for batteries</span></li>
+  </ul>
+</div>
 
-  <!-- S4 · P-1 -->
-  <div class="cell row-s4">
-    <div><span class="badge b-prop">P-1</span></div>
+<div class="cell empty"></div>
+
+<!-- ══ SESSION 6: Fuse-6 + Install Motor ══ -->
+<div class="sess"><span class="sess-num">6</span><span class="sess-lbl">MECH FINAL</span></div>
+
+<div class="cell empty"></div>
+<div class="cell empty"></div>
+<div class="cell empty"></div>
+
+<div class="cell">
+  <div><span class="badge b-fuse">FUSE-6</span></div>
+  <ul class="tl">
+    <li><span class="tnum">125</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Attach prop hatch</span></li>
+    <li><span class="tnum">138</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Half install the mech shelf with the larger screws</span></li>
+    <li><span class="tnum">139</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Screw the two halves together</span></li>
+    <li><span class="tnum">140</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Epoxy the two halves together including the front spacer</span></li>
+    <li><span class="tnum">141</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt dry">⏱ Drying period (fuselage assembly)</span></li>
+  </ul>
+  <hr class="divline">
+  <div><span class="badge b-prop">P-1 (MECH)</span></div>
+  <ul class="tl">
+    <li><span class="tnum">142</span><div class="tdot" style="background:var(--mc)"></div><span class="ttxt">Install the motor and nosecone and cross mount</span></li>
+  </ul>
+</div>
+
+<div class="cell empty"></div>
+
+<!-- ══ TEST ROW ══ -->
+<div class="sess sess-test"><span style="font-size:7px;letter-spacing:1px;opacity:.8">FINAL</span><span class="sess-num" style="font-size:11px">TEST</span><span class="sess-lbl">ALL HANDS</span></div>
+
+<div class="cell" style="grid-column:span 5;background:var(--ch-l);">
+  <div><span class="badge b-test">TEST + P-2 — COMPLETE PLANE REQUIRED — 9 CHECKS (ordered by Notion sequence)</span></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0 16px;">
     <ul class="tl">
-      <li><span class="tnum">149</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Install receiver and gyro</span></li>
-      <li><span class="tnum">150</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Plug in ESC to motor</span></li>
-      <li><span class="tnum">151</span><div class="tdot" style="background:var(--prop)"></div><span class="ttxt">Wire receiver and gyro</span></li>
+      <li><span class="tnum">152</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">Pull test on control surfaces</span></li>
+      <li><span class="tnum">153</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">Pull test on all crimps while the thing is on</span></li>
+      <li><span class="tnum">154</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">Electronically zero control surfaces then mechanically zero them to match</span></li>
+    </ul>
+    <ul class="tl">
+      <li><span class="tnum">155</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">Check all control surfaces</span></li>
+      <li><span class="tnum">156</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">Motor spin and direction test</span></li>
+      <li><span class="tnum">157</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">Gyro test in all modes</span></li>
+    </ul>
+    <ul class="tl">
+      <li><span class="tnum">158</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">Landing gear steering test</span></li>
+      <li><span class="tnum">159</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">CG test</span></li>
+      <li><span class="tnum">160</span><div class="tdot" style="background:var(--ch)"></div><span class="ttxt">Taxi test</span></li>
     </ul>
   </div>
-
-  <!-- ═══════════ SESSION 5 ═══════════ -->
-  <div class="sess row-s5"><span class="sess-num">5</span><span class="sess-lbl">MECH SPLIT</span></div>
-
-  <div class="cell empty row-s5"></div>
-  <div class="cell empty row-s5"></div>
-  <div class="cell empty row-s5"></div>
-
-  <!-- S5 · LG-1 + LG-2 + Fuse-5 (concurrent within Mech) -->
-  <div class="cell row-s5">
-    <div style="display:flex; gap:4px; align-items:center; margin-bottom:5px">
-      <span class="badge b-lg" style="margin-bottom:0">LG-1</span>
-      <span style="font-size:8px; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace">→ concurrent with LG-2 →</span>
-      <span class="badge b-lg" style="margin-bottom:0">LG-2</span>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; margin-bottom:6px">
-      <ul class="tl" style="border-right:1px solid var(--rule); padding-right:4px">
-        <li><span class="tnum">126</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Cut metal pieces for LG</span></li>
-        <li><span class="tnum">127</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Drill metal pieces for LG</span></li>
-        <li><span class="tnum">128</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Drill main landing gear</span></li>
-      </ul>
-      <ul class="tl">
-        <li><span class="tnum">129</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Install main gear wheels</span></li>
-        <li><span class="tnum">130</span><div class="tdot" style="background:#800010"></div><span class="ttxt">Assemble front gear + strut</span></li>
-      </ul>
-    </div>
-    <div><span class="badge b-fuse">FUSE-5</span></div>
-    <ul class="tl">
-      <li><span class="tnum">124</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Screw on hinge for prop hatch</span></li>
-      <li><span class="tnum">125</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Attach prop hatch</span></li>
-      <li><span class="tnum">131</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Wire front gear servo</span></li>
-      <li><span class="tnum">132</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Attach main + front gear to fuselage</span></li>
-      <li><span class="tnum">133</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Install duck mechanism in bottom half</span></li>
-      <li><span class="tnum">134</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Put in bulkheads and epoxy</span></li>
-      <li><span class="tnum">135</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Put in puck mechanism and epoxy</span></li>
-      <li><span class="tnum">136</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt dry">⏱ Drying period</span></li>
-      <li><span class="tnum">137</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Add velcro for batteries</span></li>
-    </ul>
-  </div>
-
-  <div class="cell empty row-s5"></div>
-
-  <!-- ═══════════ SESSION 6 ═══════════ -->
-  <div class="sess row-s6"><span class="sess-num">6</span><span class="sess-lbl">MECH FINAL</span></div>
-
-  <div class="cell empty row-s6"></div>
-  <div class="cell empty row-s6"></div>
-  <div class="cell empty row-s6"></div>
-
-  <!-- S6 · Fuse-6 -->
-  <div class="cell row-s6">
-    <div><span class="badge b-fuse">FUSE-6</span></div>
-    <ul class="tl">
-      <li><span class="tnum">138</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Half install mech shelf w/ larger screws</span></li>
-      <li><span class="tnum">139</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Screw the two halves together</span></li>
-      <li><span class="tnum">140</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Epoxy halves together + front spacer</span></li>
-      <li><span class="tnum">141</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt dry">⏱ Drying period</span></li>
-      <li><span class="tnum">142</span><div class="tdot" style="background:var(--mech)"></div><span class="ttxt">Install motor, nosecone + cross mount</span></li>
-    </ul>
-  </div>
-
-  <div class="cell empty row-s6"></div>
-
-  <!-- ═══════════ TEST ROW ═══════════ -->
-  <div class="sess sess-test row-test" style="background:var(--checks)">
-    <span style="font-size:7px;letter-spacing:1px;opacity:.8">FINAL</span>
-    <span class="sess-num" style="font-size:11px">TEST</span>
-    <span class="sess-lbl">ALL HANDS</span>
-  </div>
-
-  <!-- Test spans 5 columns -->
-  <div class="cell row-test" style="grid-column: span 5; background: var(--checks-l);">
-    <div><span class="badge b-test">TEST — COMPLETE PLANE REQUIRED — 9 CHECKS</span></div>
-    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: 0 16px;">
-      <ul class="tl">
-        <li><span class="tnum">152</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">Pull test on control surfaces</span></li>
-        <li><span class="tnum">153</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">Pull test on all crimps (powered on)</span></li>
-        <li><span class="tnum">154</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">Electronically zero CS → mech zero to match</span></li>
-      </ul>
-      <ul class="tl">
-        <li><span class="tnum">155</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">Check all control surfaces</span></li>
-        <li><span class="tnum">156</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">Motor spin and direction test</span></li>
-        <li><span class="tnum">157</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">Gyro test in all modes</span></li>
-      </ul>
-      <ul class="tl">
-        <li><span class="tnum">158</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">Landing gear steering test</span></li>
-        <li><span class="tnum">159</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">CG test</span></li>
-        <li><span class="tnum">160</span><div class="tdot" style="background:var(--checks)"></div><span class="ttxt">Taxi test</span></li>
-      </ul>
-    </div>
-  </div>
+</div>
 
 </div><!-- end grid -->
 
 <div class="page-footer">
-  <span>CORNELL DBF · AIAA DBF 2026 · 160+ TASKS · 25 SESSION CATEGORIES · 3 CONCURRENT SUBTEAM TRACKS</span>
-  <span>⏱ = cure/dry hold · # = Notion order · same row = concurrent work · FUSE-3.5 / FUSE-5.5 / LG-1 / LG-2 are new sub-sessions</span>
+  <span>CORNELL DBF · AIAA DBF 2026 · 160 TASKS · 24 SESSION GROUPS · DATA SOURCE: NOTION EXPORT</span>
+  <span>⏱ = cure/dry hold · # = Notion order · same row = concurrent work</span>
 </div>
 
 </body>
